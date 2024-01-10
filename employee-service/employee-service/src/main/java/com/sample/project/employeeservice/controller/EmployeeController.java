@@ -1,5 +1,6 @@
 package com.sample.project.employeeservice.controller;
 
+import com.sample.project.employeeservice.dto.APIResponseDto;
 import com.sample.project.employeeservice.dto.EmployeeDto;
 import com.sample.project.employeeservice.entity.Employee;
 import com.sample.project.employeeservice.service.EmployeeService;
@@ -19,9 +20,9 @@ public class EmployeeController {
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
     @GetMapping("{id}")
-    public ResponseEntity<EmployeeDto> getEmployee(@PathVariable("id") Long employeeId){
-                    EmployeeDto employeeDto =employeeService.getEmployeeById(employeeId);
-                    return new ResponseEntity<>(employeeDto,HttpStatus.OK);
+    public ResponseEntity<APIResponseDto> getEmployee(@PathVariable("id") Long employeeId){
+        APIResponseDto apiResponseDto =employeeService.getEmployeeById(employeeId);
+                    return new ResponseEntity<>(apiResponseDto,HttpStatus.OK);
     }
 
 }
